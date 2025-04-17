@@ -1,0 +1,53 @@
+.contact-card{
+    padding: 10px 20px;
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    background-color: #f9f9f9;
+}
+
+/* .contact-card:hover{
+    cursor: pointer;
+    background-color: #f1f1f1;
+} */
+
+.contact-card mat-icon{
+    font-size: fit-content;
+    /* color: royalblue; */
+}
+
+.inactive{
+    opacity: 0.5;
+}
+
+.icon:hover{
+    cursor: pointer;
+    color: #2f50a5;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2f50a5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgb(27, 92, 166);
+}
+
+.not-allowed{
+    opacity: 0.25;
+}
+.not-allowed:hover{
+    color: rgb(56, 18, 18);
+    cursor: not-allowed;
+}

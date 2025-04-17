@@ -1,0 +1,29 @@
+<main class="main">
+ 
+</main>
+<header class="app-header">
+  <div class="header-left" routerLink="contacts">
+    <mat-icon fontSet="material-icons-round">home</mat-icon>
+    <span class="app-title">
+        Contact manager
+    </span>
+  </div>
+
+  
+  <div class="header-right">
+    @if (authService.isLoggedIn()) {
+      <div class="button" (click)="authService.logout()">
+        <span style="margin-left: 4px; vertical-align: middle;">Sign out</span>
+        <mat-icon fontSet="material-icons-round">logout</mat-icon>
+      </div>
+    }
+    @else{
+      <div routerLink="signin" class="button">
+        <span style="margin-left: 4px; vertical-align: middle;">Sign in</span>
+        <mat-icon fontSet="material-icons-round">login</mat-icon>
+      </div>
+    }
+  </div>
+</header>
+
+<router-outlet />

@@ -1,0 +1,39 @@
+
+
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 20px;">
+    @for (contact of contacts; track $index) {
+        <div class="contact-card"  style="display: flex; gap: 10px; align-items: center;">
+            <span>
+                <mat-icon fontSet="material-icons-outlined">person</mat-icon>
+            </span>
+            <span>
+                {{ contact.name }}
+                {{ contact.surname }}
+            </span>
+            <span style="opacity: 0.5;">
+                {{ contact.category }}
+            </span>
+            <span style="margin-left: auto; display: flex; gap: 10px;">
+                <span style="opacity: 0.5;">
+                    {{ contact.user }}
+                </span>
+                @if (authService.isLoggedIn()) {
+                    <mat-icon class="icon" fontSet="material-icons-outlined" routerLink="/contacts/{{contact.id}}">search</mat-icon>
+                    <mat-icon class="icon" fontSet="material-icons-outlined" routerLink="/contacts/{{contact.id}}/edit">edit</mat-icon>
+                    <mat-icon class="icon" fontSet="material-icons-outlined" (click)="deleteContact(contact.id)">delete</mat-icon>
+                }
+                @else {
+                    <mat-icon class="icon not-allowed" fontSet="material-icons-outlined" routerLink="/contacts/{{contact.id}}">search</mat-icon>
+                    <mat-icon class="icon not-allowed" fontSet="material-icons-outlined">edit</mat-icon>
+                    <mat-icon class="icon not-allowed" fontSet="material-icons-outlined">delete</mat-icon>
+                }
+            </span>
+        </div>
+    }
+    @if (authService.isLoggedIn()) {
+        <button style="margin-top: 20px;" routerLink="/contacts/new">
+            <mat-icon fontSet="material-icons-round">add</mat-icon>
+            Add New Contact
+        </button>
+    }
+</div>

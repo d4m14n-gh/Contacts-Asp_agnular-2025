@@ -1,0 +1,68 @@
+
+@if (details) {
+<section>
+    <div>
+        <mat-icon fontSet="material-icons-round">account_circle</mat-icon>
+        {{details.name}}
+        {{details.surname}}
+    </div>
+    @if(details.email){
+        <div>
+            <mat-icon fontSet="material-icons-round">mail</mat-icon>
+            {{details.email}}
+        </div>
+    }
+    @if(details.password){
+        <div>
+            <mat-icon fontSet="material-icons-round">lock</mat-icon>
+            {{details.password}}
+        </div>
+    }
+    @if(details.phone){
+        <div>
+            <mat-icon fontSet="material-icons-round">phone</mat-icon>
+            {{details.phone}}
+        </div>
+    }
+    @if(details.dateOfBirth){
+        <div>
+            <mat-icon fontSet="material-icons-round">calendar_today</mat-icon>
+            {{(details.dateOfBirth.toString().slice(0, 10))}}
+        </div>
+    }
+    
+    <div>
+        <mat-icon fontSet="material-icons-round">category</mat-icon>
+        {{details.category}}
+    </div>
+    @if (details.subCategory) {
+        <div>
+            <mat-icon fontSet="material-icons-round">subdirectory_arrow_right</mat-icon>
+            {{details.subCategory}}
+        </div>
+    }
+    @if (details.category === 'Other' && details.ownSubCategory) {
+        <div>
+            <mat-icon fontSet="material-icons-round">subdirectory_arrow_right</mat-icon>
+            {{details.ownSubCategory}}
+        </div>
+    }
+
+    @if(details.category === 'Business' && details.user) {
+        <div>
+            <mat-icon fontSet="material-icons-round">person</mat-icon>
+            {{details.user}}
+        </div>
+    }
+    @if(details.user) {
+        <hr>
+        <div style="color: #2f50a5">
+            Added by:
+        </div>
+        <div>
+            <mat-icon fontSet="material-icons-round">person_outline</mat-icon>
+            {{details.user}}
+        </div>
+    }
+</section>
+}

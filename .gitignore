@@ -1,0 +1,19 @@
+# Ignoruj pliki tymczasowe systemów operacyjnych
+.DS_Store
+Thumbs.db
+
+# Ignoruj logi
+*.log
+
+# Ignoruj tymczasowe pliki edytorów
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+
+# Ignoruj katalogi tymczasowe
+tmp/
+temp/
+.cache/
+.vs/

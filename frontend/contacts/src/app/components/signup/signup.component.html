@@ -1,0 +1,34 @@
+<div class="register-container">
+    <h2>
+        <mat-icon>person_add</mat-icon> Sign up
+    </h2>
+  
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+      @if (registerError) {
+        <div class="error-message">
+          {{registerError}}
+        </div>
+      }
+  
+      <label>
+        <mat-icon>mail</mat-icon>
+        Email:
+        <input type="email" name="email" autocomplete="username" formControlName="email" required>
+      </label>
+  
+      <label>
+        <mat-icon>lock</mat-icon>
+        Password:
+        <input type="password" name="password" autocomplete="new-password" formControlName="password" required>
+      </label>
+  
+      <button type="submit" [disabled]="registerForm.invalid">
+        <mat-icon>person_add</mat-icon> Sign up
+      </button>
+    </form>
+  
+    <!-- <p class="register-link">
+      <a routerLink="/signup">Sign up</a>
+    </p> -->
+
+  </div>

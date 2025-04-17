@@ -1,0 +1,79 @@
+<section>
+    <h2><mat-icon>account_circle</mat-icon> Create contact</h2>
+    
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+    
+
+        <label>
+            <mat-icon>person</mat-icon>
+            Name:
+            <input type="text" name="name" formControlName="name" required>
+        </label>
+
+        <label>
+            <mat-icon>person_outline</mat-icon>
+            Surname:
+            <input type="text" name="surname" formControlName="surname">
+        </label>
+
+        <label>
+            <mat-icon>mail</mat-icon>
+            Email:
+            <input type="email" name="email" autocomplete="username"  formControlName="email" required>
+        </label>
+
+        <label>
+            <mat-icon>lock</mat-icon>
+            Password:
+            <input type="text" name="password" formControlName="password" minlength="8">
+        </label>
+
+        <label>
+            <mat-icon>phone</mat-icon>
+            Phone:
+            <input type="tel" name="phone" formControlName="phone">
+        </label>
+
+        <label>
+            <mat-icon>calendar_today</mat-icon>
+            Date of Birth:
+            <input type="date" name="dateOfBirth" formControlName="dateOfBirth">
+        </label>
+
+        <label>
+            <mat-icon>category</mat-icon>
+            Category:
+
+            <select name="category" formControlName="category">
+                <option value="" disabled selected>Select a category</option>
+                @for (item of categories; track $index) {
+                    <option value="{{item.name}}">{{item.name}}</option>
+                }
+            </select>
+        </label>
+
+        @if (contactForm.get('category')?.value === 'Business') { 
+            <label>
+                <mat-icon>subdirectory_arrow_right</mat-icon>
+                SubCategory:
+                <select name="subCategory" formControlName="subCategory">
+                    <option value="" disabled selected>Select a subCategory</option>
+                    @for (item of subCategories; track $index) {
+                        <option value="{{item.name}}">{{item.name}}</option>
+                    }
+                </select>
+            </label>
+        }
+        @else if (contactForm.get('category')?.value === 'Other') {
+            <label>
+                <mat-icon>edit</mat-icon>
+                Own SubCategory:
+                <input type="text" name="ownSubCategory" formControlName="ownSubCategory">
+            </label>
+        }
+
+        <button type="submit" [disabled]="contactForm.invalid">
+        <mat-icon>send</mat-icon> Create contact
+        </button>
+    </form>
+</section>

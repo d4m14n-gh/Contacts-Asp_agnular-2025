@@ -1,0 +1,40 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* backdrop-filter: blur(10px); */
+    background-color: #2f50a5;
+    padding: 8px 16px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    font-size: 1.45em;
+    gap: 8px;
+    color: white;
+    /* user-select: none; */
+}
+
+.header-left:hover {
+    cursor: pointer;
+}
+
+.app-title {
+    font-weight: 500;
+}
+
+.header-right button{
+    padding: 5px 10px;
+}
+
+.button {
+    padding: 3px 5px !important;
+    /* border: 1px solid #ccc;  */
+    border-radius: 10px; 
+    background-color: #f9f9f9;
+}
+.button:hover {
+    background-color: #dbdada;
+    cursor: pointer;
+}

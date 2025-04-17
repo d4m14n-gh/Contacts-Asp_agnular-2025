@@ -1,0 +1,35 @@
+<div class="login-container">
+  <h2><mat-icon>login</mat-icon> Sign in</h2>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    @if (loginError) {
+      <div class="error-message">
+        {{loginError}}
+      </div>
+    }
+
+    <label>
+      <mat-icon>mail</mat-icon>
+      Email:
+      <input type="email" name="email" autocomplete="username"  formControlName="email" required>
+    </label>
+
+    <label>
+      <mat-icon>lock</mat-icon>
+      Password:
+      <input type="password" name="password" autocomplete="current-password" formControlName="password" required>
+    </label>
+
+
+    <button type="submit" [disabled]="loginForm.invalid">
+      <mat-icon>login</mat-icon> Sign in
+    </button>
+  </form>
+
+  <p class="register-link">
+    Create new account: <a routerLink="/signup">Sign up</a>
+  </p>
+  <!-- <p class="forgot-password-link">
+    <a [routerLink]="/forgot-password">Forgot Password?</a>
+  </p> -->
+</div>
